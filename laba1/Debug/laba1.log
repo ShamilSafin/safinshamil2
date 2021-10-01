@@ -1,0 +1,20 @@
+﻿  laba1.cpp
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(48,2): error C2065: cout: необъявленный идентификатор
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(48,27): error C2065: endl: необъявленный идентификатор
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(49,2): error C2065: cout: необъявленный идентификатор
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(49,24): error C2065: endl: необъявленный идентификатор
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(50,2): error C2065: cout: необъявленный идентификатор
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(50,36): error C2065: endl: необъявленный идентификатор
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(51,2): error C2065: cout: необъявленный идентификатор
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(51,30): error C2065: endl: необъявленный идентификатор
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(52,2): error C2065: cout: необъявленный идентификатор
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(52,27): error C2065: endl: необъявленный идентификатор
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(53,2): error C2065: cout: необъявленный идентификатор
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(53,24): error C2065: endl: необъявленный идентификатор
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(54,2): error C2065: cout: необъявленный идентификатор
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(54,24): error C2065: endl: необъявленный идентификатор
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(55,2): error C2065: cout: необъявленный идентификатор
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(55,21): error C2065: endl: необъявленный идентификатор
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(59,1): error C2059: синтаксическая ошибка: do
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(59,4): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+C:\Users\User\source\repos\laba1\laba1\laba1\laba1.cpp(59,4): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
