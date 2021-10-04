@@ -10,15 +10,9 @@
 
 using namespace std;
 
-enum TableCommand
-{
-	y = 121,
-	n = 110,
-};
-
 struct truba
 {
-	double id;
+	int id;
 	double dlina;
 	double diametr;
 	bool remont;
@@ -26,10 +20,10 @@ struct truba
 
 struct KS
 {
-	double id;
+	int id;
 	string name;
-	double kolich;
-	double kolichrab;
+	int kolich;
+	int kolichrab;
 	double ifect;
 };
 
@@ -54,27 +48,35 @@ void print_menu()
 		<< "8) Vihod" << endl;
 }
 
-int GetValue()
+double GetValue(int min_value, int max_value, string str)
 {
-	    string value;
-		vector<string> vec;
-		while ((getline(cin, value, ' ')) && (vec.size() < 1))
+	double value;
+	for (;;) 
+	{
+		cout << " Vvidide " + str + " (ot " << min_value << " do " << max_value << "): ";
+		if (!(cin >> value) || cin.get() != '\n')
 		{
-			vec.push_back(value);
+			cout << "Cho ti vvel!" << endl;
+			cin.clear();
+			cin.ignore(5000, '\n');
 		}
+		else if ((min_value <= value) && (value <= max_value)) 
+		return value;
+	}
 }
+
 
 bool Getrep()
 {
-	char sosre;
+	string vibor;
 	while (true)
 	{
-		sosre = _getch();
-		if (sosre == y)
+		vibor = _getch();
+		if (vibor == "y")
 		{
 			return true;
 		}
-		else if (sosre == n)
+		else if (vibor == "n")
 		{
 			return false;
 		}
@@ -101,25 +103,26 @@ string getname()
 	{
 		getline(cin, nameKS);
 		if (nameKS != "" && Probel(nameKS) && size(nameKS) <= 10)
-			return nameKS;
+		return nameKS;
 	}
+
 };
 
 truba newtruba(int id)
 { 
 	    truba z;
 		z.id = id;
-		z.dlina = GetValue();
-		z.diametr = GetValue();
+		z.dlina = GetValue(400,1000, "dlina");
+		z.diametr = GetValue(500,1200, "diametr");
 		z.remont = Getrep();
 		return z;
 }
 
-void ramochka(char ch, size_t count)
+void ramochka(char c, size_t count)
 {
 	for (size_t i = 0; i < count; i++)
 	{
-		cout << ch;
+		cout << c;
 	}
 	cout << endl;
 };
@@ -150,14 +153,14 @@ void tablichaKS(vector <KS>& vectorKSs)
 };
 
 KS newKS(int id)
-{ 
-	    KS f;
-		f.id = id;
-		f.name = getname();
-	    f.kolich= GetValue();
-		f.kolichrab= GetValue();
-	    f.ifect= GetValue();
-		return f;
+{
+	KS f;
+	f.id = id;
+	f.name = getname();
+	f.kolich = GetValue(1,20,"VsegoKS");
+	f.kolichrab = GetValue(0,20,"VsegoKSrabotat");
+	f.ifect = GetValue(1,100,"Iffect");
+	return f;
 }
 
 int get_var(int count) 
@@ -176,15 +179,20 @@ int get_var(int count)
 
 void Redactortrub(vector <truba>& vectortrubs)
 {
-	size_t localId;
+	size_t tipid;
 	bool query;
 	cout << "Всего добавлено труб: " << size(vectortrubs) << endl;
-
+	if (size(vectortrubs) == 0)
+	{
+		cout << "Oshipka, net trubi"<<endl;
+		ProverEnter();
+		return;
+	}
 	while (true)
 	{
-		localId = GetValue();
-		cout << "Iznochalno:" << (vectortrubs[localId - 1].remont == true ? "в ремонте" : "не в ремонте") << endl;
-		vectortrubs[localId - 1].remont = Getrep();
+		tipid = GetValue(1, size(vectortrubs), "Id");
+		cout << "Iznochalno:" << (vectortrubs[tipid - 1].remont == true ? "V remonte" : "Ne v remonte") << endl;
+		vectortrubs[tipid - 1].remont = Getrep();
 		query = Getrep();
 		if (query != true)
 			break;
@@ -193,20 +201,26 @@ void Redactortrub(vector <truba>& vectortrubs)
 
 void RedactorKS(vector <KS>& vectorKSs)
 {
-	size_t localId;
-	bool query;
+	size_t tipid;
+	bool pravda;
 	cout << "Всего добавлено компрессорных станций: " << size(vectorKSs) << endl;
-	
-	while (true)
+	if (size(vectorKSs) == 0)
 	{
-		localId = GetValue();
-		cout << "Obchie kolichestvo KS " << vectorKSs[localId - 1].kolich << endl;
-		cout << "Obchie kolichestvo KS rabotat: " << vectorKSs[localId - 1].kolichrab << endl;
-		vectorKSs[localId - 1].kolichrab = GetValue();
-		query = Getrep();
-		if (query != true)
-			break;
+		cout << "Oshipka, net stanchii";
+		ProverEnter();
+		return;
 	}
+		while (true)
+		{
+			tipid = GetValue(1,size(vectorKSs),"Id");
+			cout << "Obchie kolichestvo KS " << vectorKSs[tipid - 1].kolich << endl;
+			cout << "Obchie kolichestvo KS rabotat: " << vectorKSs[tipid - 1].kolichrab << endl;
+			vectorKSs[tipid - 1].kolichrab = GetValue(0, vectorKSs[tipid - 1].kolichrab,"");
+			pravda = Getrep();
+			if (pravda != true)
+				break;
+		}
+	
 };
 
 void Savef(vector <truba>& vectortrubs, vector <KS>& vectorKSs)
@@ -224,7 +238,6 @@ void Savef(vector <truba>& vectortrubs, vector <KS>& vectorKSs)
 				<< vectortrubs[i].diametr << endl
 				<< vectortrubs[i].remont << endl;
 		}
-		//fout << "flag" << endl;
 		for (size_t i = 0; i < size(vectorKSs); i++)
 		{
 			fout << vectorKSs[i].id << endl
@@ -242,68 +255,120 @@ void Savef(vector <truba>& vectortrubs, vector <KS>& vectorKSs)
 	}
 };
 
+void Zagruzka(truba pipeline, KS station)
+{
+	ifstream inf("data.txt");
+
+	if (!inf)
+	{
+		cerr << "Nu chto-to slomno" << endl;
+		exit(1);
+	}
+	else if (inf.peek() == -1)
+	{
+		cout << "\ndata.txt pust\n";
+	}
+	else
+	{
+		inf >> pipeline.id;
+		inf >> pipeline.dlina;
+		inf >> pipeline.diametr;
+		inf >> pipeline.remont;
+		inf >> station.id;
+		getline(inf, station.name);
+		inf.ignore(5000, '\n');
+		inf >> station.kolich;
+		inf >> station.kolichrab;
+		inf >> station.ifect;
+	}
+}
+
+void ProverEnter()
+{
+	char c;
+	cout << "\t\t\t\t\tVihodim otsuda cherez Enter";
+	c = _getch();
+	if (c == 13) 
+	exit(0);
+};
+
 int menu()
 {
-	int variant;
+	char variant;
 	SetConsoleTitle(L"Laba №1, Safin Shamil, AA-20-05");
 	print_menu();
-	variant = get_var(7);
 	vector <truba> vectortruba;
 	vector <KS> vectorKS;
 	variant = _getch();
-	switch (variant)
+	while (true)
 	{
-	case 1:
-		system("CLS");
-		PrintTitle("\t\t\t\tTRUBA");
-		truba NewTruba = newtruba(size(vectortruba) + 1);
-		vectortruba.push_back(NewTruba);
-	break;
+		switch (variant)
+		{
+		case '1':
+		{
+			system("CLS");
+			PrintTitle("\t\t\t\tTRUBA");
+			truba NewTruba = newtruba(size(vectortruba) + 1);
+			vectortruba.push_back(NewTruba);
+			break;
+		}
 
-	case 2:
-		system("CLS");
-		PrintTitle("\t\t\t\tKS");
-		KS NewComSta = newKS(size(vectorKS) + 1);
-		vectorKS.push_back(NewComSta);
-	break;
+		case '2':
+		{
+			system("CLS");
+			PrintTitle("\t\t\t\tKS");
+			KS NewComSta = newKS(size(vectorKS) + 1);
+			vectorKS.push_back(NewComSta);
+			break;
+		}
+		case '3':
+		{
+			system("ClS");
+			PrintTitle("\n\t\t\t\tTabliza trubi\n");
+			tablichatruba(vectortruba);
+			PrintTitle("\n\n\n\n\t\t\t\t\t\t\t\tTabliza KS\n");
+			tablichaKS(vectorKS);
+			ProverEnter();
+			break;
+		}
+		case '4':
+		{
+			system("CLS");
+			PrintTitle("\n\t\t\t\tRedactor Trub\n");
+			Redactortrub(vectortruba);
+			break;
+		}
+		case'5':
+		{
+			system("CLS");
+			PrintTitle("\n\t\t\t\tRedactor KS\n");
+			RedactorKS(vectorKS);
+			break;
+		}
+		case '6':
+		{
+			system("CLS");
+			PrintTitle("\n\t\t\t\tSave Danie\n");
+			Savef(vectortruba, vectorKS);
+			break;
+		}
 
-	case 3:
-		system("ClS");
-		PrintTitle("\n\t\t\t\tTabliza trubi\n");
-		tablichatruba(vectortruba);
-		PrintTitle("\n\n\n\n\t\t\t\t\t\t\t\tTabliza KS\n");
-		tablichaKS(vectorKS);
-	break;
-
-	case 4:
+		case '7':
+		{
+			system("CLS");
+			Zagruzka(newtruba(size(vectortruba) + 1), newKS(size(vectorKS) + 1));
+			break;
+		}
+		case '0':
+		{
+			system("CLS");
+			PrintTitle("\n\tPoka Poka");
+			Sleep(3000);
+			return 0;
+			break;
+		}
+		}
 		system("CLS");
-		PrintTitle("\n\t\t\t\tRedactor Trub\n");
-		Redactortrub(vectortruba);
-	break;
-
-	case 5:
-		system("CLS");
-		PrintTitle("\n\t\t\t\tRedactor KS\n");
-		RedactorKS(vectorKS);
-	break;
-
-	case 6:
-	
-		system("CLS");
-		PrintTitle("\n\t\t\t\tSave Danie\n");
-		Savef(vectortruba, vectorKS);
-	break;
-	
-
-	case 7:
-	break;
-	
-	case 0:
-		system("CLS");
-		PrintTitle("\n\tPoka Poka");
-		Sleep(3000);
-	return 0;
-	
 	}
-	system("CLS");
+	return 0;
 };
