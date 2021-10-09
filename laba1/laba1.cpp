@@ -35,9 +35,23 @@ void PrintTitle(string textTitle)
 	cout << textTitle << endl;
 };
 
+void ProverEnter()
+{
+	while (true)
+	{
+		char c;
+		cout << endl << "\t\t\t\t\tVihodim otsuda cherez Enter";
+		c = _getch();
+		if (c == 13)
+			break;
+		else
+			cout <<endl<< "Oshibochka";
+	}
+};
+
 void print_menu()
 {
-	system("cls");
+	//system("cls");
 	cout << "1) Dobavit trubu" << endl
 		<< "2) Dobavit KS" << endl
 		<< "3) Prosmotr vseh object" << endl
@@ -45,7 +59,41 @@ void print_menu()
 		<< "5) Redactor KS" << endl
 		<< "6) Sahranit" << endl
 		<< "7) Zagruzit" << endl
-		<< "8) Vihod" << endl;
+		<< "0) Vihod" << endl;
+}
+
+
+int GetValue(int min_value, int max_value, string str, bool itint)
+{
+	int value;
+	int a;
+	while (true)
+	{
+			cout << " Vvidide " + str + " (ot " << min_value << " do " << max_value << "): ";
+			if (!(cin >> value) || cin.get() != '\n')
+			{
+						cout << "Cho ti vvel!" << endl;
+						cin.clear();
+						cin.ignore(5000, '\n');
+					
+				
+			}
+			else
+			{
+				a = value;
+				if (a % value == 0)
+					if ((min_value <= value) && (value <= max_value))
+						return value;
+					else
+					{
+						cout << "Vvedi drugoe";
+					}
+				else
+				{
+					cout << "Vvedi drugoe";
+				}
+			}
+	}
 }
 
 double GetValue(int min_value, int max_value, string str)
@@ -69,6 +117,7 @@ double GetValue(int min_value, int max_value, string str)
 bool Getrep()
 {
 	string vibor;
+	cout << "On v remonte? Yes or No?(Yes-y, No-n): "<<endl;
 	while (true)
 	{
 		vibor = _getch();
@@ -101,6 +150,7 @@ string getname()
 	string nameKS;
 	while (true)
 	{
+		cout << "Vvedite name: ";
 		getline(cin, nameKS);
 		if (nameKS != "" && Probel(nameKS) && size(nameKS) <= 10)
 		return nameKS;
@@ -116,6 +166,17 @@ truba newtruba(int id)
 		z.diametr = GetValue(500,1200, "diametr");
 		z.remont = Getrep();
 		return z;
+}
+
+KS newKS(int id)
+{
+	KS f;
+	f.id = id;
+	f.name = getname();
+	f.kolich = GetValue(1, 20, "VsegoKS",true);
+	f.kolichrab = GetValue(0, 20, "VsegoKSrabotat",true);
+	f.ifect = GetValue(1, 100, "Iffect");
+	return f;
 }
 
 void ramochka(char c, size_t count)
@@ -152,26 +213,16 @@ void tablichaKS(vector <KS>& vectorKSs)
 	ramochka('/', 172);
 };
 
-KS newKS(int id)
-{
-	KS f;
-	f.id = id;
-	f.name = getname();
-	f.kolich = GetValue(1,20,"VsegoKS");
-	f.kolichrab = GetValue(0,20,"VsegoKSrabotat");
-	f.ifect = GetValue(1,100,"Iffect");
-	return f;
-}
+
 
 int get_var(int count) 
 {
 	int variant;
-	std::cin >> variant;
-	
+	cin >> variant;
 	while (variant < 1) 
 	{
-		std::cout<<"Necorektno. Vvidite drugoe chislo: ";
-		std::cin >> variant;
+		cout<<"Necorektno. Vvidite drugoe chislo: ";
+		cin >> variant;
 	}
 
 	return variant;
@@ -180,8 +231,8 @@ int get_var(int count)
 void Redactortrub(vector <truba>& vectortrubs)
 {
 	size_t tipid;
-	bool query;
-	cout << "Всего добавлено труб: " << size(vectortrubs) << endl;
+	bool que;
+	cout << "Vsego trub: " << size(vectortrubs) << endl;
 	if (size(vectortrubs) == 0)
 	{
 		cout << "Oshipka, net trubi"<<endl;
@@ -193,9 +244,7 @@ void Redactortrub(vector <truba>& vectortrubs)
 		tipid = GetValue(1, size(vectortrubs), "Id");
 		cout << "Iznochalno:" << (vectortrubs[tipid - 1].remont == true ? "V remonte" : "Ne v remonte") << endl;
 		vectortrubs[tipid - 1].remont = Getrep();
-		query = Getrep();
-		if (query != true)
-			break;
+		break;
 	}
 };
 
@@ -203,7 +252,7 @@ void RedactorKS(vector <KS>& vectorKSs)
 {
 	size_t tipid;
 	bool pravda;
-	cout << "Всего добавлено компрессорных станций: " << size(vectorKSs) << endl;
+	cout << "Vsego dobavleno KS: " << size(vectorKSs) << endl;
 	if (size(vectorKSs) == 0)
 	{
 		cout << "Oshipka, net stanchii";
@@ -213,95 +262,91 @@ void RedactorKS(vector <KS>& vectorKSs)
 		while (true)
 		{
 			tipid = GetValue(1,size(vectorKSs),"Id");
-			cout << "Obchie kolichestvo KS " << vectorKSs[tipid - 1].kolich << endl;
+			cout << "Obchie kolichestvo KS: " << vectorKSs[tipid - 1].kolich << endl;
 			cout << "Obchie kolichestvo KS rabotat: " << vectorKSs[tipid - 1].kolichrab << endl;
+			cout << "Vvedine skolko sechas rabotat: ";
 			vectorKSs[tipid - 1].kolichrab = GetValue(0, vectorKSs[tipid - 1].kolichrab,"");
-			pravda = Getrep();
-			if (pravda != true)
-				break;
+			break;
 		}
 	
 };
 
 void Savef(vector <truba>& vectortrubs, vector <KS>& vectorKSs)
 {
-	ofstream fout;
+	ofstream f;
 	string path = "data.txt";
-	fout.open(path);
+	f.open(path);
 	size_t percent = 0;
-	if (fout.is_open())
+	if (f.is_open())
 	{
 		for (size_t i = 0; i < size(vectortrubs); i++)
 		{
-			fout << vectortrubs[i].id << endl
-				<< vectortrubs[i].dlina << endl
-				<< vectortrubs[i].diametr << endl
-				<< vectortrubs[i].remont << endl;
+			  f << "pip:" << vectortrubs[i].id << endl
+				<< "pip:" << vectortrubs[i].dlina << endl
+				<< "pip:" << vectortrubs[i].diametr << endl
+				<< "pip:" << vectortrubs[i].remont << endl;
 		}
 		for (size_t i = 0; i < size(vectorKSs); i++)
 		{
-			fout << vectorKSs[i].id << endl
-				<< vectorKSs[i].name << endl
-				<< vectorKSs[i].kolich << endl
-				<< vectorKSs[i].kolichrab << endl
-				<< vectorKSs[i].ifect << endl;
-		}
-		while (percent <= 100)
-		{
-			cout << "\t\t\t\t" << "    Progres " << percent++ << "%";
-			cout << '\r';
-			Sleep(20);
+			  f << "KS:" << vectorKSs[i].id << endl
+				<< "KS:" << vectorKSs[i].name << endl
+				<< "KS:" << vectorKSs[i].kolich << endl
+				<< "KS:" << vectorKSs[i].kolichrab << endl
+				<< "KS:" << vectorKSs[i].ifect << endl;
 		}
 	}
 };
 
-void Zagruzka(truba pipeline, KS station)
+void Zagruzka(vector <truba>& vectortrubs, vector<KS>& vectorKSs)
 {
-	ifstream inf("data.txt");
-
-	if (!inf)
+	ifstream f ("data.txt");
+	if (!f.is_open())
 	{
-		cerr << "Nu chto-to slomno" << endl;
+		cout << "Nu chto-to slomno" << endl;
 		exit(1);
 	}
-	else if (inf.peek() == -1)
+	else if (f.peek() == -1)
 	{
 		cout << "\ndata.txt pust\n";
 	}
 	else
 	{
-		inf >> pipeline.id;
-		inf >> pipeline.dlina;
-		inf >> pipeline.diametr;
-		inf >> pipeline.remont;
-		inf >> station.id;
-		getline(inf, station.name);
-		inf.ignore(5000, '\n');
-		inf >> station.kolich;
-		inf >> station.kolichrab;
-		inf >> station.ifect;
+		while (f.peek() == 'pip:')
+		{
+			truba line;
+			line.id = size(vectortrubs);
+			f >> line.dlina;
+			f >> line.diametr;
+			f >> line.remont;
+			vectortrubs.push_back(line);
+		}
+		while (f.peek() == 'KS:')
+		{
+			KS stan;
+			f >> stan.id;
+			getline(f, stan.name);
+			f >> stan.kolich;
+			f >> stan.kolichrab;
+			f >> stan.ifect;
+			vectorKSs.push_back(stan);
+		}
+		f.close();
+		cout << "Vse sohranilos" << endl;
 	}
 }
 
-void ProverEnter()
-{
-	char c;
-	cout << "\t\t\t\t\tVihodim otsuda cherez Enter";
-	c = _getch();
-	if (c == 13) 
-	exit(0);
-};
 
-int menu()
+
+int main()
 {
 	char variant;
 	SetConsoleTitle(L"Laba №1, Safin Shamil, AA-20-05");
-	print_menu();
 	vector <truba> vectortruba;
 	vector <KS> vectorKS;
-	variant = _getch();
 	while (true)
 	{
+		print_menu();
+		variant = _getch();
 		switch (variant)
 		{
 		case '1':
@@ -356,7 +401,7 @@ int menu()
 		case '7':
 		{
 			system("CLS");
-			Zagruzka(newtruba(size(vectortruba) + 1), newKS(size(vectorKS) + 1));
+			Zagruzka(vectortruba, vectorKS);
 			break;
 		}
 		case '0':

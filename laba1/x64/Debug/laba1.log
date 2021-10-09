@@ -1,14 +1,12 @@
 ﻿  laba1.cpp
-C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(160,21): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(161,24): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(188,3): error C3861: ProverEnter: идентификатор не найден
-C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(193,46): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(193,19): warning C4244: =: преобразование "double" в "size_t", возможна потеря данных
-C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(210,3): error C3861: ProverEnter: идентификатор не найден
-C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(215,43): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(215,20): warning C4244: =: преобразование "double" в "size_t", возможна потеря данных
-C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(218,45): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(312,51): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(321,43): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(360,43): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(360,70): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(244,46): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(244,19): warning C4244: =: преобразование "double" в "size_t", возможна потеря данных
+C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(234,7): warning C4101: que: неиспользованная локальная переменная
+C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(264,43): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(264,20): warning C4244: =: преобразование "double" в "size_t", возможна потеря данных
+C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(268,45): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(254,7): warning C4101: pravda: неиспользованная локальная переменная
+C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(317,31): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(356,51): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\laba1\laba1.cpp(365,43): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+  laba1.vcxproj -> C:\Users\User\Documents\safinshamil2\x64\Debug\laba1.exe
