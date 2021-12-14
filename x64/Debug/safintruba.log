@@ -1,0 +1,55 @@
+﻿  CSCollection.cpp
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(33,6): warning C4267: аргумент: преобразование из "size_t" в "const _Kty"; возможна потеря данных
+          with
+          [
+              _Kty=int
+          ]
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(35,122): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(36,151): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(37,25): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(67,26): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(95,260): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(110,260): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(148,7): warning C4267: аргумент: преобразование из "size_t" в "const _Kty"; возможна потеря данных
+          with
+          [
+              _Kty=int
+          ]
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(150,26): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(168,26): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(181,28): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(217,95): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(217,179): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(218,79): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(219,20): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(219,94): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(234,97): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(234,182): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(235,81): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(236,22): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\CSCollection.cpp(236,97): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+  main.cpp
+  CS.cpp
+  Pipe.cpp
+  PipeCollection.cpp
+C:\Users\User\Documents\safinshamil2\PipeCollection.cpp(29,6): warning C4267: аргумент: преобразование из "size_t" в "const _Kty"; возможна потеря данных
+          with
+          [
+              _Kty=int
+          ]
+C:\Users\User\Documents\safinshamil2\PipeCollection.cpp(32,32): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\PipeCollection.cpp(34,27): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\PipeCollection.cpp(75,28): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\PipeCollection.cpp(100,7): warning C4267: аргумент: преобразование из "size_t" в "const _Kty"; возможна потеря данных
+          with
+          [
+              _Kty=int
+          ]
+C:\Users\User\Documents\safinshamil2\PipeCollection.cpp(102,28): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\PipeCollection.cpp(120,28): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\PipeCollection.cpp(133,30): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\PipeCollection.cpp(178,24): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\User\Documents\safinshamil2\PipeCollection.cpp(189,22): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+  work_with_user.cpp
+  Создание кода...
+  safintruba.vcxproj -> C:\Users\User\Documents\safinshamil2\x64\Debug\safintruba.exe
